@@ -17,6 +17,7 @@ const limiter = RateLimit({
   windowMs: 1 * 60 * 1000, // 1 minute
   max: 20,
 });
+
 // Apply rate limiter to all requests
 app.use(limiter);
 
@@ -25,6 +26,10 @@ app.use(helmet());
 
 const dataRouter = require("./routes/dhtData");
 app.use("/dhtData", dataRouter);
+
+app.get("/", (req, res) => {
+  res.json({ message: "Stay awhile and listen" });
+});
 
 app.listen(port, () =>
   console.log("Server listening on PORT", port, `\nhttp://localhost:${port}/`)
