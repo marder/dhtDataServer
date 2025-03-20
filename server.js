@@ -19,7 +19,7 @@ const limiter = RateLimit({
 });
 
 // Apply rate limiter to all requests
-app.use(limiter);
+//app.use(limiter);
 
 app.use(express.json());
 app.use(helmet());
@@ -30,6 +30,10 @@ app.use("/dhtData", dataRouter);
 app.get("/", (req, res) => {
   res.json({ message: "Stay awhile and listen" });
 });
+
+// app.set('trust proxy', 1)
+// app.get('/ip', (request, response) => response.send(request.ip))
+// app.get('/x-forwarded-for', (request, response) => response.send(request.headers['x-forwarded-for']))
 
 app.listen(port, () =>
   console.log("Server listening on PORT", port, `\nhttp://localhost:${port}/`)
