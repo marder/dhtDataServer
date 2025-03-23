@@ -14,12 +14,12 @@ db.once("open", () => console.log("Connected to database..."));
 
 const RateLimit = require("express-rate-limit");
 const limiter = RateLimit({
-  windowMs: 1 * 60 * 1000, // 1 minute
-  max: 200,
+  windowMs: 10 * 60 * 1000, // 1 minute
+  max: 50,
 });
 
 // Apply rate limiter to all requests
-//app.use(limiter);
+app.use(limiter);
 
 app.use(express.json());
 app.use(helmet());
