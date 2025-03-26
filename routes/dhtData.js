@@ -41,6 +41,7 @@ router.post("/", async (req, res) => {
       description: req.body.description,
       temperature: req.body.temperature,
       humidity: req.body.humidity,
+      pressure: req.body.pressure
     });
     try {
       const newDhtData = await data.save();

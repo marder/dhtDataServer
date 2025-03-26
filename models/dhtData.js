@@ -13,6 +13,10 @@ const dhtDataSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  pressure: {
+    type: Number,
+    required: false,
+  },
   readingDate: {
     type: Date,
     required: true,
